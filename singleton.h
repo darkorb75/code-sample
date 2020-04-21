@@ -47,7 +47,7 @@ protected:
 
 private:
     static std::unique_ptr<T> 	instance_;
-    static std::once_flag 	    singleton_flag_;
+    static std::once_flag       singleton_flag_;
 };
 
 template<typename T>
