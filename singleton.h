@@ -57,3 +57,4 @@ template<typename T>
 std::once_flag Singleton<T>::singleton_flag_;
 
 #endif // __SINGLETON_H__
+
