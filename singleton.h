@@ -23,31 +23,31 @@ template <typename T>
 class Singleton
 {
 public:
-	static T& Instance()
-	{
-		std::call_once(singleton_flag_,
-			[]()
-			{
-				instance_ = std::make_unique<T>();
-			});
+    static T& Instance()
+    {
+        std::call_once(singleton_flag_,
+            []()
+            {
+                instance_ = std::make_unique<T>();
+            });
 
-		return *instance_;
-	}
+        return *instance_;
+    }
 
-	static void Destroy()
-	{
-		if (instance_)
-			instance_.reset(nullptr);
-	}
+    static void Destroy()
+    {
+        if (instance_)
+            instance_.reset(nullptr);
+    }
 
 protected:
-	Singleton() = default;
-	Singleton(const Singleton&) = delete;
-	Singleton& operator=(const Singleton&) = delete;
+    Singleton() = default;
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
 
 private:
-	static std::unique_ptr<T> 	instance_;
-	static std::once_flag 		singleton_flag_;
+    static std::unique_ptr<T> 	instance_;
+    static std::once_flag 		singleton_flag_;
 };
 
 template<typename T>
